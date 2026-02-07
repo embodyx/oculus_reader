@@ -16,7 +16,7 @@ def eprint(*args, **kwargs):
 
 class OculusReader:
     def __init__(self,
-            ip_address=None,
+            ip_address="192.168.10.124",
             port = 5555,
             APK_name='com.rail.oculus.teleop',
             print_FPS=False,
@@ -71,7 +71,7 @@ class OculusReader:
                 eprint('Run `adb shell ip route` to verify the IP address.')
                 exit(1)
             else:
-                self.get_device(client=client, retry=retry+1)
+                self.get_network_device(client=client, retry=retry+1)
         return device
 
     def get_usb_device(self, client):
