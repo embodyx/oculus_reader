@@ -31,13 +31,6 @@ In order to compile the code you need to download the Oculus Quest SDK version 1
         - File -> Settings -> Build, Execution, Deployment -> Build Tools -> Gradle
         - Set Gradle JDK to JDK 11
 
-- Download the VrAPP.gradle file to the home folder
-
-    - ```
-        cd ~
-        curl -L -o VrApp.gradle https://raw.githubusercontent.com/lovr-org/ovr_sdk_mobile/master/VrApp.gradle
-        ```
-
 - You will get an error that NDK is missing. Go to Tools -> SDK Manager and select SDK Tools tab
     - Select "Show Package Details" on the right side below the list to enable version selection
     - Scroll down to "NDK (Side by side)"
