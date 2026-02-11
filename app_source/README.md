@@ -7,15 +7,42 @@ In order to compile the code you need to download the Oculus Quest SDK version 1
 ### Preparation
 
 - (Mac only) Install Xcode
+
 - Install Android development studio. On Ubuntu you can run `sudo snap install android-studio --classic`, otherwise follow: <https://developer.android.com/studio>
+
 - Got to Tools -> SDK Manager and install Android 8.0 (API Level 26) platform.
+
 - Select *Open an Existing Project*, find the repository path, and open: app_source/Projects/Android/build.gradle
+
 - Go to File -> Project structure...
+
 - Select Gradle 6.1.1
+
+- Make sure to use Java 11
+
+    - ```
+        sudo apt update 
+        sudo apt install openjdf-11-jdk
+        /usr/lib/jvm/java-11-openjdk-amd64/bin/java -version
+        ```
+
+    - Make Android Studio use JDK 11 for Gradle
+
+        - File -> Settings -> Build, Execution, Deployment -> Build Tools -> Gradle
+        - Set Gradle JDK to JDK 11
+
+- Download the VrAPP.gradle file to the home folder
+
+    - ```
+        cd ~
+        curl -L -o VrApp.gradle https://raw.githubusercontent.com/lovr-org/ovr_sdk_mobile/master/VrApp.gradle
+        ```
+
 - You will get an error that NDK is missing. Go to Tools -> SDK Manager and select SDK Tools tab
     - Select "Show Package Details" on the right side below the list to enable version selection
     - Scroll down to "NDK (Side by side)"
     - Select and install version which is close to the default one indicated in the error
+
 - In SDK root create the `local.properties` file and provide following content
     - on Mac:
     ```
@@ -27,7 +54,9 @@ In order to compile the code you need to download the Oculus Quest SDK version 1
     sdk.dir=/home/<username>/Android/Sdk
     ndk.dir=/home/<username>/Android/Sdk/ndk/<NDK_version>
     ```
+
 - In SDK root edit the `settings.properties` file. Replace the the `rootProject.name` and `include` lines with:
+
 ```
 rootProject.name = "OculusTeleop"
 
